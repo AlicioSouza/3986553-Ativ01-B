@@ -27,9 +27,7 @@ Projeto desenvolvido utilizando o microcontrolador PIC16F877A para controle de e
 O sistema foi projetado para identificar automaticamente se uma pessoa está entrando ou saindo do ambiente, com base na ordem de acionamento de sensores ópticos instalados em cada porta. Para isso, cada porta utiliza dois sensores com LDR, formando uma barreira óptica com LED emissor de luz. Quando a pessoa interrompe o feixe luminoso, o microcontrolador detecta a mudança lógica do sensor.
 
 A lógica de funcionamento foi implementada de forma a reconhecer:
-
 entrada, quando o primeiro sensor da porta é ativado e em seguida o segundo sensor é ativado dentro de uma janela de tempo configurada;
-
 saída, quando a sequência ocorre na ordem inversa.
 
 O sistema possui uma janela máxima de aproximadamente 2 segundos entre o primeiro e o segundo sensor. Caso esse tempo seja excedido, a leitura é descartada. Após um evento válido, a porta entra em estado de bloqueio até que os dois sensores retornem ao estado normal, evitando múltiplas contagens indevidas.
@@ -37,19 +35,14 @@ O sistema possui uma janela máxima de aproximadamente 2 segundos entre o primei
 Além da lógica de contagem, o sistema possui os seguintes recursos de indicação:
 
 LED de status, que pisca continuamente para indicar que o sistema está em funcionamento;
-
 LED de ocupado, que indica se há pelo menos uma pessoa dentro do ambiente;
-
 LED de entrada, que sinaliza a ocorrência de uma entrada válida;
-
 LED de saída, que sinaliza a ocorrência de uma saída válida.
 
 Como interface de visualização, o projeto utiliza um display LCD 16x2, conectado em modo de 8 bits, já conforme a ligação física disponível na placa utilizada. O visor apresenta:
 
 total de entradas;
-
 total de saídas;
-
 quantidade de pessoas dentro do ambiente.
 
 Foi implementada também uma regra de segurança lógica importante:
@@ -151,12 +144,7 @@ Se não houver ninguém dentro, o sistema:
 não registra saída
 não pulsa LED de saída
 não incrementa total de saídas
-não altera o LCD
-
-Porta 2
-
-S3 → S4 = entrada
-S4 → S3 = saída
+não altera o LCD.
 
 
 
